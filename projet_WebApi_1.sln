@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projet_WebApi_1", "projet_WebApi_1\projet_WebApi_1.csproj", "{2E422975-4406-4A31-A522-84AF980902D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF.DAL", "EF.DAL\EF.DAL.csproj", "{CE5A4630-C72E-4129-9C2D-488DF1704E03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E422975-4406-4A31-A522-84AF980902D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E422975-4406-4A31-A522-84AF980902D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E422975-4406-4A31-A522-84AF980902D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E422975-4406-4A31-A522-84AF980902D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE5A4630-C72E-4129-9C2D-488DF1704E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5A4630-C72E-4129-9C2D-488DF1704E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5A4630-C72E-4129-9C2D-488DF1704E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5A4630-C72E-4129-9C2D-488DF1704E03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
