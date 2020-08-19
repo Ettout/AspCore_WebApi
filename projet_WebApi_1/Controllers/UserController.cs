@@ -42,6 +42,25 @@ namespace projet_WebApi_1.Controllers
             return Ok(res1);
         }
 
+        [HttpPost("add")]
+        public async Task<IActionResult> Add(UserADtos userADtos)
+        {
+
+
+            IDataService<User> _dataService = new UserData();
+
+            User user = new User
+            {
+                Name = userADtos.Username,
+                Prename = userADtos.Userprename,
+                EmailAdress = userADtos.Useremail,
+                Tel = userADtos.Usertel,
+                PassWord = userADtos.Userpassword,
+            };
+
+            var result = await _dataService.Create(user);
+            return Ok(result);
+        }
 
     }
 }
