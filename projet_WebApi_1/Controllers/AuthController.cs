@@ -21,31 +21,31 @@ namespace projet_WebApi_1.Controllers
             _autoRepository = autoRepository;
         }
 
-        [HttpPost("Register")]
-        public async Task<IActionResult> Register(UserDtos user)
-        {
-            if (await _autoRepository.UserExist(user.username))
-            {
-                return StatusCode(401);
-            }
-            User userCre = new User { Name = user.username, PassWord = user.userpassword };
-            await _autoRepository.Register(userCre);
+        /*  [HttpPost("Register")]
+          public async Task<IActionResult> Register(UserDtos user)
+          {
+              if (await _autoRepository.UserExist(user.username))
+              {
+                  return StatusCode(401);
+              }
+              User userCre = new User { Name = user.username, PassWord = user.userpassword };
+              await _autoRepository.Register(userCre);
 
-            return StatusCode(201);
-        }
+              return StatusCode(201);
+          }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(UserDtos user)
-        {
-            var result = await _autoRepository.Login(user.username, user.userpassword);
-            if (result == true)
-            {
-                Token token1 = new Token { tokenn = "valid token" };
-                return Ok(token1);
-            }
-            Token token2 = new Token { tokenn = "-----------------" };
-            return Ok(token2);
-        }
+          [HttpPost("login")]
+          public async Task<IActionResult> Login(UserDtos user)
+          {
+              var result = await _autoRepository.Login(user.username, user.userpassword);
+              if (result == true)
+              {
+                  Token token1 = new Token { tokenn = "valid token" };
+                  return Ok(token1);
+              }
+              Token token2 = new Token { tokenn = "-----------------" };
+              return Ok(token2);
+          }*/
 
     }
 }

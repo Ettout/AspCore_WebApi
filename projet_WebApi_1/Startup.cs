@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using EF.DAL.Data;
 using EF.DAL.Data.DataService;
 using EF.DAL.Model;
@@ -36,7 +37,7 @@ namespace projet_WebApi_1
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddCors();
 
             services.AddScoped<IDataService<User>, UserData>();

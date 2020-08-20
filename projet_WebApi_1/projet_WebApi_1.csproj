@@ -13,6 +13,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EF.DAL\EF.DAL.csproj">
@@ -22,5 +23,6 @@
   <ItemGroup>
     <Folder Include="Service\" />
     <Folder Include="Dtos\" />
+    <Folder Include="Profiles\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using EF.DAL.Data;
 using EF.DAL.Model;
 using EF.DAL.Service;
@@ -14,10 +17,12 @@ namespace projet_WebApi_1.Controllers
     public class UserController : ControllerBase
     {
         private readonly IAutoRepository _autoRepository;
+        private readonly IMapper _mapper;
 
-        public UserController(IAutoRepository autoRepository)
+        public UserController(IAutoRepository autoRepository, IMapper mapper)
         {
             _autoRepository = autoRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -26,7 +31,7 @@ namespace projet_WebApi_1.Controllers
             IDataService<User> _dataService = new UserData();
 
             var result = await _dataService.GetALL();
-            return Ok(result);
+            return Ok(_mapper.Map<List<UserReadDto>>(result)); ;
         }
 
 
@@ -39,28 +44,28 @@ namespace projet_WebApi_1.Controllers
 
             var result = await _dataService.GetALL();
             var res1 = result.FirstOrDefault(x => x.ID == Id);
-            return Ok(res1);
+            return Ok(_mapper.Map<UserReadDto>(res1));
         }
 
-        [HttpPost("add")]
-        public async Task<IActionResult> Add(UserADtos userADtos)
-        {
+        /* [HttpPost("add")]
+         public async Task<IActionResult> Add(UserADtos userADtos)
+         {
 
 
-            IDataService<User> _dataService = new UserData();
+             IDataService<User> _dataService = new UserData();
 
-            User user = new User
-            {
-                Name = userADtos.Username,
-                Prename = userADtos.Userprename,
-                EmailAdress = userADtos.Useremail,
-                Tel = userADtos.Usertel,
-                PassWord = userADtos.Userpassword,
-            };
+             User user = new User
+             {
+                 Name = userADtos.Username,
+                 Prename = userADtos.Userprename,
+                 EmailAdress = userADtos.Useremail,
+                 Tel = userADtos.Usertel,
+                 PassWord = userADtos.Userpassword,
+             };
 
-            var result = await _dataService.Create(user);
-            return Ok(result);
-        }
-
+             var result = await _dataService.Create(user);
+             return Ok(result);
+         }
+        */
     }
 }
