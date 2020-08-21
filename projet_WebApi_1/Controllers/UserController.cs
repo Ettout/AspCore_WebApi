@@ -6,12 +6,14 @@ using AutoMapper;
 using EF.DAL.Data;
 using EF.DAL.Model;
 using EF.DAL.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using projet_WebApi_1.Dtos;
 using projet_WebApi_1.Service;
 
 namespace projet_WebApi_1.Controllers
 {
+    [Authorize]
     [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -36,7 +38,7 @@ namespace projet_WebApi_1.Controllers
 
 
 
-
+        [AllowAnonymous]
         [HttpGet("{Id}")]
         public async Task<IActionResult> Get(int Id)
         {
