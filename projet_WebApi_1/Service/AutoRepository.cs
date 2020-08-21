@@ -18,11 +18,11 @@ namespace projet_WebApi_1.Service
             _userData = userData;
         }
 
-        public async Task<bool> Login(string username, string password)
+        public async Task<User> Login(string username, string password)
         {
 
             var users = await _userData.GetALL();
-            return users.Any(x => x.Name == username && x.PassWord == password);
+            return users.FirstOrDefault(x => x.Name == username && x.PassWord == password);
         }
 
         public async Task<User> Register(User user)
