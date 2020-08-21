@@ -36,9 +36,9 @@ namespace projet_WebApi_1.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserCreatDto user)
+        public async Task<IActionResult> Login(LoginDto user)
         {
-            var _user = await _autoRepository.Login(user.Name, user.PassWord);
+            var _user = await _autoRepository.Login(user.Name, user.Password);
             if (_user != null)
             {
 
