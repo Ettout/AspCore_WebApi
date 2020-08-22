@@ -18,12 +18,10 @@ namespace projet_WebApi_1.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IAutoRepository _autoRepository;
         private readonly IMapper _mapper;
 
-        public UserController(IAutoRepository autoRepository, IMapper mapper)
+        public UserController(IMapper mapper)
         {
-            _autoRepository = autoRepository;
             _mapper = mapper;
         }
 
@@ -49,25 +47,14 @@ namespace projet_WebApi_1.Controllers
             return Ok(_mapper.Map<UserReadDto>(res1));
         }
 
-        /* [HttpPost("add")]
-         public async Task<IActionResult> Add(UserADtos userADtos)
-         {
+        [HttpPost("add")]
+        public async Task<IActionResult> Add(UserCreatDto userADtos)
+        {
 
+            IDataService<User> _dataService = new UserData();
+            var result = await _dataService.Create(_mapper.Map<User>(userADtos));
+            return Ok(result);
+        }
 
-             IDataService<User> _dataService = new UserData();
-
-             User user = new User
-             {
-                 Name = userADtos.Username,
-                 Prename = userADtos.Userprename,
-                 EmailAdress = userADtos.Useremail,
-                 Tel = userADtos.Usertel,
-                 PassWord = userADtos.Userpassword,
-             };
-
-             var result = await _dataService.Create(user);
-             return Ok(result);
-         }
-        */
     }
 }

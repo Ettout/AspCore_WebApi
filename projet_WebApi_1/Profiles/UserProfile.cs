@@ -10,6 +10,10 @@ namespace projet_WebApi_1.Profiles
         public UserProfile()
         {
             CreateMap<User, UserReadDto>();
+            CreateMap<UserCreatDto, User>();
+            CreateMap<Category, CategoryReadDto>();
+
+
         }
     }
 }
