@@ -110,9 +110,6 @@ namespace EF.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PassWord")
-                        .HasColumnType("TEXT");
-
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("BLOB");
 
@@ -124,6 +121,9 @@ namespace EF.DAL.Migrations
 
                     b.Property<string>("Tel")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("UserRole")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 

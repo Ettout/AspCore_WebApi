@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EF.DAL.Migrations
 {
-    public partial class init : Migration
+    public partial class initmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,8 +29,10 @@ namespace EF.DAL.Migrations
                     Name = table.Column<string>(nullable: true),
                     EmailAdress = table.Column<string>(nullable: true),
                     Tel = table.Column<string>(nullable: true),
+                    UserRole = table.Column<int>(nullable: false),
                     Prename = table.Column<string>(nullable: true),
-                    PassWord = table.Column<string>(nullable: true)
+                    PasswordHash = table.Column<byte[]>(nullable: true),
+                    PasswordSalt = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF.DAL.Migrations
 {
     [DbContext(typeof(SQliteDBContext))]
-    [Migration("20200722175612_init")]
-    partial class init
+    [Migration("20200830205959_initmigration")]
+    partial class initmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.6");
+                .HasAnnotation("ProductVersion", "3.1.7");
 
             modelBuilder.Entity("EF.DAL.Model.Category", b =>
                 {
@@ -112,14 +112,20 @@ namespace EF.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PassWord")
-                        .HasColumnType("TEXT");
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("BLOB");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("Prename")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Tel")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("UserRole")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 

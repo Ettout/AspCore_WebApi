@@ -3,6 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EF.DAL.Model
 {
+    public enum UserRoleType
+    {
+        UserAccount,
+        AdminAccount
+    }
+
     public class User : DomainObject
     {
         public string Name { get; set; }
@@ -11,9 +17,9 @@ namespace EF.DAL.Model
 
         public string Tel { get; set; }
 
-        public string Prename { get; set; }
+        public UserRoleType UserRole { get; set; }
 
-        public string PassWord { get; set; }
+        public string Prename { get; set; }
 
         public byte[] PasswordHash { get; set; }
 
